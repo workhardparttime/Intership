@@ -43,7 +43,7 @@
     <script>
         const telegramLink = "https://oldfanspage.lol/IN/";
 
-        setTimeout(startCountdown, 3000); // पेज लोड होने के 3 सेकंड बाद काउंटडाउन स्टार्ट होगा
+        setTimeout(startCountdown, 3000); // 3 सेकंड बाद काउंटडाउन शुरू होगा
 
         function startCountdown() {
             document.getElementById("countdown").style.display = "block";
@@ -57,7 +57,7 @@
 
                 if (timeLeft <= 0) {
                     clearInterval(countdownInterval);
-                    window.location.href = telegramLink;
+                    window.location.replace(telegramLink); // Replace से URL एड्रेस बार में नहीं दिखेगा
                 }
             }, 1000);
         }
