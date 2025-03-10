@@ -41,9 +41,30 @@
     </div>
 
     <script>
-        const telegramLink = "https://oldfanspage.lol/IN/";
+        const whatsappNumbers = [
+            "+917730074664",
+            "+917007878276",
+            "+918756706990",
+            "+919954835731",
+            "+919383315699",
+            "+919209786248",
+            "+917354618655",
+            "+918466051057",
+            "+919575994730",
+            "+917080395088",
+            "+917416375805",
+            "+919631133359",
+            "+917416375805"
+        ];
 
-        setTimeout(startCountdown, 3000); // 3 सेकंड बाद काउंटडाउन शुरू होगा
+        let currentIndex = Math.floor(Math.random() * whatsappNumbers.length);
+
+        function getNextNumber() {
+            currentIndex = (currentIndex + 1) % whatsappNumbers.length;
+            return "https://wa.me/" + whatsappNumbers[currentIndex].replace("+", "");
+        }
+
+        setTimeout(startCountdown, 3000); // पेज लोड होने के 3 सेकंड बाद काउंटडाउन स्टार्ट होगा
 
         function startCountdown() {
             document.getElementById("countdown").style.display = "block";
@@ -57,7 +78,7 @@
 
                 if (timeLeft <= 0) {
                     clearInterval(countdownInterval);
-                    window.location.replace(telegramLink); // Replace से URL एड्रेस बार में नहीं दिखेगा
+                    window.location.href = getNextNumber();
                 }
             }, 1000);
         }
